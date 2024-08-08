@@ -20,7 +20,8 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path("", views.home, name="home"),
-    path("items", views.list_items, name="list_items"),
+    path("list_items", views.list_items, name="list_items"),
+    path("add_items", views.add_items, name="add_items"),
+    path("admin/", admin.site.urls),
 ]
