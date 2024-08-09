@@ -44,7 +44,12 @@
 
     <main role="main" class="container">
         <div class="jumbotron">
-            <h1>{{title}}</h1>
+            <h1>{{header}}</h1>
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{form}}
+                <input type="submit" value="Search" />
+            </form>
             <table class="table" aria-label="table">
                 <thead>
                     <tr>
