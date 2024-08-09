@@ -13,8 +13,10 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/navbar-fixed/">
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS should be loaded after Bootstrap -->
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -36,15 +38,31 @@
     <link href="navbar-top-fixed.css" rel="stylesheet">
 </head>
 
+
 <body>
     {% include 'navbar.html' %}
 
     <main role="main" class="container">
         <div class="jumbotron">
             <h1>{{title}}</h1>
-            {% for instance in queryset %}
-            {{instance.item_name}}, {{instance.quantity}}<br>
-            {% endfor %}
+            <table class="table" aria-label="table">
+                <thead>
+                    <tr>
+                        <th>COUNT</th>
+                        <th>CATEGORY</th>
+                        <th>ITEM NAME</th>
+                        <th>QUANTITY IN STORE</th>
+                    </tr>
+                </thead>
+                {% for instance in queryset %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{instance.category}}</td>
+                    <td>{{instance.item_name}}</td>
+                    <td>{{instance.quantity}}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
