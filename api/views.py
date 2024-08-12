@@ -17,7 +17,7 @@ def list_items(request):
     context = {"header": header, "queryset": queryset, "form": form}
     if request.method == "POST":
         queryset = Stock.objects.filter(
-            category__icontains=form["category"].value(),
+            category__name__icontains=form["category"].value(),
             item_name__icontains=form["item_name"].value(),
         )
         context = {"form": form, "header": header, "queryset": queryset}

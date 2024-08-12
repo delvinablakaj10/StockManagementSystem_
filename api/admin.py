@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .forms import StockCreateForm
-from .models import Stock  # Ensure you are using the correct relative import
+from .models import Category, Stock
 
 
 class StockCreateAdmin(admin.ModelAdmin):
@@ -12,3 +12,4 @@ class StockCreateAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Stock, StockCreateAdmin)
+admin.site.register(Category)
